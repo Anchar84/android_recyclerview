@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.util.*
@@ -17,14 +18,25 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+    }
+}
+
+class ListFragment(): Fragment() {
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        val view = inflater.inflate(R.layout.list_fragment, container, false)
+
         val items = mutableListOf<String>()
         for (i in 1..1000) {
             items.add("${UUID.randomUUID()}")
         }
 
-        val rView: RecyclerView = findViewById(R.id.container)
-        rView.layoutManager = LinearLayoutManager(this)
+        val rView: RecyclerView = view.findViewById(R.id.container)
+        rView.layoutManager = LinearLayoutManager(view.context)
         rView.adapter = Adapter(items)
+
+        return view
     }
 }
 

@@ -7,10 +7,11 @@
     tools:context=".MainActivity"
     >
 
-    <androidx.recyclerview.widget.RecyclerView
+    <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/container"
-        android:scrollbars="vertical"
+        android:id="@+id/fragmentContainer"
+        android:name="plist.eg.recycleview.ListFragment"
         />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
